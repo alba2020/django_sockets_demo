@@ -1,0 +1,25 @@
+{% extends 'xws/_base.html' %}
+
+{% block content %}
+    <h1>Login</h1>
+
+    {% if form.non_field_errors %}
+        <ul class='form-errors'>
+            {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+  <form action="{% url 'xws:log_in' %}" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <div>
+        {{ field.label_tag }}
+        {{ field }}
+      </div>
+    {% endfor %}
+    <button type="submit">Log in</button>
+  </form>
+  <p>Don't have an account? <a href="{% url 'xws:sign_up' %}">Sign up!</a></p>
+{% endblock content %}

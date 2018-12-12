@@ -1,0 +1,50 @@
+{% extends 'xws/_base.html' %}
+
+{% block content %}
+
+<!--        my app          -->
+
+{% load staticfiles %}
+  <div id="container"></div>
+  <script src="{% static "bundle.js" %}"></script>
+
+<!--        my app          -->
+
+  <a href="{% url 'xws:log_out' %}">Log out</a>
+  <br>
+ 
+{% endblock content %}
+
+{% block script %}
+  <script>
+    // var socket = new WebSocket('ws://' + window.location.host + '/users/');
+
+    // socket.onopen = function open() {
+    //   console.log('WebSockets connection created.');
+    // };
+
+    // socket.onmessage = function message(event) {
+    //   var data = JSON.parse(event.data);
+    //   // NOTE: We escape JavaScript to prevent XSS attacks.
+    //   var username = encodeURI(data['username']);
+    //   var user = $('li').filter(function () {
+    //     return $(this).data('username') == username;
+    //   });
+
+    //   if (data['is_logged_in']) {
+    //     user.html(username + ': Online');
+    //   }
+    //   else {
+    //     user.html(username + ': Offline');
+    //   }
+    // };
+
+    // if (socket.readyState == WebSocket.OPEN) {
+    //   socket.onopen();
+    // }
+
+    // socket.onclose = function() {
+    //   console.log('closing ws connection');
+    // }
+  </script>
+{% endblock script %}
